@@ -1,0 +1,21 @@
+[Unit]
+Description=sing-box service
+Documentation=https://sing-box.sagernet.org
+After=network.target nss-lookup.target
+# Never give up restarting: a parked proxy is a total outage.
+StartLimitIntervalSec=0
+
+[Service]
+User=root
+Type=simple
+NoNewPrivileges=yes
+TimeoutStartSec=0
+WorkingDirectory=/etc/sing-box
+ExecStart=/usr/bin/sing-box run -C /etc/sing-box/conf
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5s
+LimitNOFILE=infinity
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+{
+  "outbounds": [
+    {
+      "type": "anytls",
+      "tag": "@@NODE_NAME@@",
+      "server": "@@SERVER_IP@@",
+      "server_port": @@INBOUND_PORT@@,
+      "password": "@@ANYTLS_PASSWORD@@",
+      "idle_session_check_interval": "30s",
+      "idle_session_timeout": "30s",
+      "min_idle_session": 5,
+      "tls": {
+        "enabled": true,
+        "server_name": "@@SNI@@",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "@@REALITY_PUBLIC_KEY@@",
+          "short_id": "@@SHORT_ID@@"
+        }
+      }
+    }
+  ]
+}

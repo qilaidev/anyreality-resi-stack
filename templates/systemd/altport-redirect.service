@@ -1,0 +1,17 @@
+[Unit]
+Description=Redirect alternate ports to the sing-box inbound port
+Documentation=https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/en/CHINA-NETWORK.md
+After=network-online.target ufw.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/anyreality-resi-stack/altport.env
+ExecStart=/usr/local/lib/anyreality-resi-stack/altport-redirect.sh
+# Leave the NAT rules in place on stop; removing them on every restart would
+# drop connections mid-flight for no benefit. `--uninstall` clears the chain.
+ExecStop=/bin/true
+
+[Install]
+WantedBy=multi-user.target

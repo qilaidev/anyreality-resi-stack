@@ -1,0 +1,56 @@
+name: Bug report
+description: Something is broken
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Do NOT paste UUIDs, Reality public/private keys, server IPs, or subscription tokens.** Replace with `<redacted>` if needed.
+
+        ⚠️ **请勿粘贴 UUID、Reality 公私钥、服务器 IP、订阅 token**。需要的话用 `<redacted>` 替换。
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: Ubuntu 22.04 / Debian 12 / ...
+    validations:
+      required: true
+  - type: input
+    id: singbox_version
+    attributes:
+      label: sing-box version (output of `sing-box version`)
+    validations:
+      required: true
+  - type: input
+    id: repo_version
+    attributes:
+      label: anyreality-resi-stack version (git rev or tag)
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened
+      placeholder: Expected vs actual.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Diagnostic output
+      description: Paste output of the diagnostic commands.
+      render: shell
+      value: |
+        # systemctl status sing-box --no-pager
+        # journalctl -u sing-box -n 50 --no-pager
+        # ss -tlnp | grep ':443'
+        # sing-box check -C /etc/sing-box/conf
+    validations:
+      required: true
+  - type: checkboxes
+    id: redaction
+    attributes:
+      label: I confirm I redacted
+      options:
+        - label: I have redacted UUIDs, Reality keys, server IPs, and subscription tokens from the output above.
+          required: true

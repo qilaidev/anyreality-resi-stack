@@ -1,0 +1,52 @@
+# CDN origin-pull vhost for the WebSocket relay path.
+#
+# Chain:  client -> CDN edge -> :@@CDN_ORIGIN_PORT@@ (this) -> ws-ping-inject:18444 -> sing-box:18443
+#
+# Why the origin port is not 443: sing-box already owns tcp/443 for REALITY,
+# and REALITY forwards every non-proxy connection verbatim to its handshake
+# target, so nginx cannot share that port. @@CDN_ORIGIN_PORT@@ is one of the
+# ports Cloudflare will pull from over HTTPS (443, 2053, 2083, 2087, 2096, 8443).
+#
+# Why the hop through ws-ping-inject: the CDN closes a proxied WebSocket after
+# roughly 100 s with no frames in either direction, and TCP keepalive does not
+# count because it is hop-by-hop and dies at the edge. The injector adds an
+# application-level WS ping every 25 s. Without it the symptom is a connection
+# that dies at a suspiciously exact 2m05s, over and over, which reads like a
+# CGNAT or nginx timeout and is neither.
+server {
+    listen @@CDN_ORIGIN_PORT@@ ssl;
+    listen [::]:@@CDN_ORIGIN_PORT@@ ssl;
+    http2 on;
+    server_name @@CDN_DOMAIN@@;
+
+    ssl_certificate     @@CDN_CERT_PATH@@;
+    ssl_certificate_key @@CDN_KEY_PATH@@;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_session_cache   shared:cdnorigin:5m;
+    ssl_session_timeout 1h;
+
+    # 3600s, not the 60s default. This is NOT what causes the ~2m05s drops
+    # (that is the CDN's own idle timeout, handled by the ping injector) — but
+    # leaving it at the default would add a second, independent way for a long
+    # idle tunnel to die.
+    proxy_read_timeout  3600s;
+    proxy_send_timeout  3600s;
+
+    location @@CDN_WS_PATH@@ {
+        proxy_pass http://127.0.0.1:18444;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade    $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host       $host;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_buffering off;
+    }
+
+    # Anything that is not the WebSocket path gets an ordinary-looking page.
+    # A bare 404 on every request is itself a signal; a host that answers
+    # normally is not interesting to look at twice.
+    location / {
+        default_type text/html;
+        return 200 '<!doctype html><meta charset="utf-8"><title>@@CDN_DOMAIN@@</title><h1>It works</h1>\n';
+    }
+}

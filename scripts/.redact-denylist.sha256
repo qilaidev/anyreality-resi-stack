@@ -1,0 +1,15 @@
+# SHA-256 hashes of known real credentials that must NEVER appear in this repo.
+# Plaintext is intentionally absent — the hash itself is not a leak.
+# To add a new entry: `printf '%s' "<secret>" | shasum -a 256 | awk '{print $1}'`
+# Hashes are case-sensitive; the candidate string is hashed verbatim, no trimming.
+
+eb036ce41dd60f7cf38d8f61caa78fc2a600032bc26ead5621572cbcccc1ac5c
+972bb183b3f6afdf069a8c20c2f02a9a26d0833edbdebb2a9b976ffb33c7db96
+745fd0369b38e66b234d38abf35d57f69466ce5225cbc7866090d3466f981848
+07fee996dfeff81dc1a05a6dbfe3c46468a87c81d26a3627a431aa7bb8d79805
+a39a032d586e8da5a868cf88c22a055f883fd6a62b6acc29586bd54fda32336e
+400570cdb0504fef0ac5e16d0d17c6fcb27f8d3211f0d6913b7ac41ab7da5bd7
+d9a141d6381ea581a49b061015a5befd7b20ab29fe06e7e78351c08f67d4c9cd
+8847cb543c96ae39c796c51b08f4365786c408b74fdf534e62384bad4028fe11
+923f2b37c63c00429239e0e04b167aa5b4c15454310fb8b3aebd7d9b7b5a6ac7
+137cc652db77a04b35aeda77d00049ad5f7913139a02c2a9cf02a1a23bab69e3

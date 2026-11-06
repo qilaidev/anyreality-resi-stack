@@ -1,0 +1,8 @@
+{
+  "route": {
+    "rules": [
+      { "action": "sniff" }
+    ],
+    "final": "direct"
+  }
+}

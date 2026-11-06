@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup anyreality-resi-stack configuration
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/backup-anyreality-resi-stack.sh

@@ -1,0 +1,13 @@
+[Unit]
+Description=Refresh routing rule-sets and rebuild the client profiles
+Documentation=https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/en/CHINA-NETWORK.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# --fetch downloads the sources; the rebuild is what actually inlines them
+# into the served profile. Downloading without rebuilding is the silent
+# failure mode: the sources look fresh every week while the profile clients
+# receive has been frozen for months.
+ExecStart=/usr/local/lib/anyreality-resi-stack/rebuild-profiles.sh --fetch

@@ -1,0 +1,54 @@
+[project]
+name = "anyreality-resi-stack-subscription"
+version = "2.1.1"
+description = "Zero-dependency Python HTTP subscription leaf/aggregator for anyreality-resi-stack: serves sing-box AnyReality (AnyTLS+Reality) or legacy VLESS Reality client profiles with usage cards on Ubuntu/Debian VPS hosts."
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+keywords = [
+  "anthropic",
+  "anyreality",
+  "anytls",
+  "chatgpt",
+  "claude",
+  "clash",
+  "clash-profile",
+  "debian",
+  "dual-node",
+  "geosite",
+  "openai",
+  "proxy",
+  "python-http-server",
+  "reality",
+  "residential-ip",
+  "sing-box",
+  "subscription-server",
+  "systemd",
+  "ubuntu",
+  "usage-card",
+  "v2rayn",
+  "vps",
+  "vless",
+  "vless-reality",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Internet :: Proxy Servers",
+  "Topic :: System :: Networking",
+]
+
+[project.urls]
+Homepage = "https://github.com/qilaidev/anyreality-resi-stack"
+Repository = "https://github.com/qilaidev/anyreality-resi-stack"
+Documentation = "https://github.com/qilaidev/anyreality-resi-stack/tree/main/docs"
+Changelog = "https://github.com/qilaidev/anyreality-resi-stack/blob/main/CHANGELOG.md"
+FAQ = "https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/en/FAQ.md"
+Issues = "https://github.com/qilaidev/anyreality-resi-stack/issues"
+
+# Lint configuration lives in the repo-root ruff.toml so subscription/ and
+# tests/ are linted with identical rules; see the note there.

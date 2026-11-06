@@ -1,0 +1,62 @@
+# Secrets — never commit anything resembling live credentials
+secrets.env
+*.env
+!templates/env/*.example
+.env
+.env.*
+!.env.example
+
+# State files emitted by subscription servers at runtime
+usage-state.json
+usage-cache.json
+state/
+var/
+
+# Keys / certs
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.gpg
+*.asc
+
+# Backup archives — never commit
+*.tar
+*.tar.gz
+*.tar.xz
+*.zip
+*.7z
+
+# OS noise
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# Logs
+*.log
+logs/
+
+# Build / cache
+__pycache__/
+*.pyc
+*.pyo
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Jekyll / GitHub Pages local build
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/

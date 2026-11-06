@@ -1,0 +1,25 @@
+[Unit]
+Description=WebSocket ping injector for the CDN relay path
+Documentation=https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/en/CHINA-NETWORK.md
+After=network-online.target
+Wants=network-online.target
+# It sits on the data path between nginx and sing-box: if it is down, the CDN
+# relay path is down, and that is the only path some carriers can use at all.
+Before=nginx.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/lib/anyreality-resi-stack/ws_ping_inject.py
+EnvironmentFile=-/etc/anyreality-resi-stack/ws-ping-inject.env
+Restart=always
+RestartSec=2
+DynamicUser=yes
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+MemoryMax=128M
+
+[Install]
+WantedBy=multi-user.target

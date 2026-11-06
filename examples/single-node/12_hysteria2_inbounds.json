@@ -1,0 +1,30 @@
+{
+  "inbounds": [
+    {
+      "type": "hysteria2",
+      "tag": "hy2-in",
+      "listen": "::",
+      "listen_port": 443,
+      "users": [
+        {
+          "name": "Example-Resi-01",
+          "password": "example-hy2-password-do-not-use"
+        }
+      ],
+      "obfs": {
+        "type": "salamander",
+        "password": "example-obfs-password-do-not-use"
+      },
+      "udp_fragment": true,
+      "ignore_client_bandwidth": true,
+      "masquerade": "https://addons.mozilla.org",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "alpn": ["h3"],
+        "certificate_path": "/etc/anyreality-resi-stack/hy2-cert.pem",
+        "key_path": "/etc/anyreality-resi-stack/hy2-key.pem"
+      }
+    }
+  ]
+}

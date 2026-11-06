@@ -1,0 +1,10 @@
+[Unit]
+Description=Probe Cloudflare WARP WireGuard endpoint and auto-degrade/recover sing-box routing
+Documentation=https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/en/WARP-EGRESS.md
+After=sing-box.service
+Requires=sing-box.service
+
+[Service]
+Type=oneshot
+RuntimeDirectory=anyreality-warp-watchdog
+ExecStart=/usr/bin/python3 /usr/local/lib/anyreality-resi-stack/warp_egress.py watchdog

@@ -1,0 +1,11 @@
+[Unit]
+Description=Every-2-minute Cloudflare WARP egress health probe
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=2min
+RandomizedDelaySec=10s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

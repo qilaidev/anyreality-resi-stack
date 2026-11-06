@@ -1,0 +1,22 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "type": "local",
+        "tag": "local",
+        "prefer_go": false
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [
+          "challenges.cloudflare.com"
+        ],
+        "action": "route",
+        "server": "local",
+        "strategy": "prefer_ipv4"
+      }
+    ],
+    "strategy": "ipv4_only"
+  }
+}
