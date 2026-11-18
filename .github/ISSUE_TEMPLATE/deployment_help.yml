@@ -1,0 +1,38 @@
+name: Deployment help
+description: Cannot get the installer or a client to work
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read [DEPLOYMENT.md](../../docs/zh-CN/DEPLOYMENT.md) and [TROUBLESHOOTING.md](../../docs/zh-CN/TROUBLESHOOTING.md) first. The vast majority of deployment issues are covered there.
+
+        ⚠️ **Do NOT paste UUIDs, Reality keys, server IPs, or subscription tokens.**
+  - type: input
+    id: stage
+    attributes:
+      label: Which install phase?
+      placeholder: preflight / install-singbox / verify / client import / ...
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Exact command you ran
+      placeholder: bash <(curl -fsSL ...) --node-name ...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What the installer / client printed
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: redaction
+    attributes:
+      label: Redaction
+      options:
+        - label: Output is redacted (no UUIDs, keys, IPs, tokens).
+          required: true

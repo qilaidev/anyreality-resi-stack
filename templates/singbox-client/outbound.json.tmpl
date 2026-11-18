@@ -1,0 +1,28 @@
+{
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "@@NODE_NAME@@",
+      "server": "@@SERVER_IP@@",
+      "server_port": @@INBOUND_PORT@@,
+      "uuid": "@@UUID@@",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "@@SNI@@",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "@@REALITY_PUBLIC_KEY@@",
+          "short_id": "@@SHORT_ID@@"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    }
+  ]
+}

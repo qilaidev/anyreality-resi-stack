@@ -1,0 +1,41 @@
+{
+  "inbounds": [
+    {
+      "type": "anytls",
+      "tag": "anytls-reality-443",
+      "listen": "::",
+      "listen_port": 443,
+      "tcp_fast_open": true,
+      "users": [
+        {
+          "name": "Example-Resi-01",
+          "password": "example-anytls-password-do-not-use"
+        }
+      ],
+      "padding_scheme": [
+        "stop=8",
+        "0=30-30",
+        "1=100-400",
+        "2=400-500,c,500-1000,c,500-1000,c,500-1000,c,500-1000",
+        "3=9-9,500-1000",
+        "4=500-1000",
+        "5=500-1000",
+        "6=500-1000",
+        "7=500-1000"
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "addons.mozilla.org",
+            "server_port": 443
+          },
+          "private_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "short_id": [""]
+        }
+      }
+    }
+  ]
+}

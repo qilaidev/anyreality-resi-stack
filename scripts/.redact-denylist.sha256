@@ -1,0 +1,6 @@
+# Optional SHA-256 denylist of high-entropy secrets that must NEVER appear in this repo.
+# IMPORTANT OPSEC NOTE: Only add SHA-256 hashes of high-entropy secrets (>=128 bits,
+# such as UUIDs or 256-bit keys). NEVER store unsalted SHA-256 hashes of IPv4
+# addresses here, as the entire 32-bit IPv4 space is trivially brute-forceable.
+#
+# Format: one lowercase hex SHA-256 digest per line (`printf '%s' "<secret>" | shasum -a 256`).

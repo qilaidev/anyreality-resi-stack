@@ -1,0 +1,8 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "error",
+    "output": "/etc/sing-box/logs/box.log",
+    "timestamp": true
+  }
+}

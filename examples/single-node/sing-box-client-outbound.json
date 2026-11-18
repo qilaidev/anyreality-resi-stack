@@ -1,0 +1,28 @@
+{
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "Example-Resi-01",
+      "server": "203.0.113.10",
+      "server_port": 443,
+      "uuid": "00000000-0000-0000-0000-000000000000",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+          "short_id": ""
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    }
+  ]
+}

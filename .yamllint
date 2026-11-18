@@ -1,0 +1,24 @@
+extends: default
+
+rules:
+  # GitHub Actions uses `on:` — yamllint mistakes it for the YAML boolean.
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off']
+    check-keys: false
+
+  # Document-start markers (`---`) add no value here.
+  document-start: disable
+
+  # GitHub Actions issue templates contain user-facing markdown that
+  # routinely exceeds 80 chars per line; relax to something sane.
+  line-length:
+    max: 200
+    level: warning
+
+  # Comments without a leading space are common in shell-style YAML.
+  comments:
+    min-spaces-from-content: 1
+
+  indentation:
+    spaces: 2
+    indent-sequences: consistent

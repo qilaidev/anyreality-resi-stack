@@ -1,0 +1,9 @@
+{
+  "route": {
+    "rules": [
+      { "action": "sniff" },
+      { "ip_is_private": true, "action": "reject" }
+    ],
+    "final": "direct"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "outbounds": [
+    {
+      "type": "anytls",
+      "tag": "Example-Resi-01",
+      "server": "203.0.113.10",
+      "server_port": 443,
+      "password": "example-anytls-password-do-not-use",
+      "idle_session_check_interval": "30s",
+      "idle_session_timeout": "30s",
+      "min_idle_session": 5,
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+          "short_id": ""
+        }
+      }
+    }
+  ]
+}

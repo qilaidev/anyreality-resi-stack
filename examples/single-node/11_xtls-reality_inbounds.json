@@ -1,0 +1,30 @@
+{
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-reality-443",
+      "listen": "::",
+      "listen_port": 443,
+      "tcp_fast_open": true,
+      "users": [
+        {
+          "uuid": "00000000-0000-0000-0000-000000000000",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "addons.mozilla.org",
+            "server_port": 443
+          },
+          "private_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "short_id": [""]
+        }
+      }
+    }
+  ]
+}

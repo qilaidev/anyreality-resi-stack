@@ -1,0 +1,30 @@
+{
+  "inbounds": [
+    {
+      "type": "hysteria2",
+      "tag": "hy2-in",
+      "listen": "::",
+      "listen_port": @@HY2_PORT@@,
+      "users": [
+        {
+          "name": "@@NODE_NAME@@",
+          "password": "@@HY2_PASSWORD@@"
+        }
+      ],
+      "obfs": {
+        "type": "salamander",
+        "password": "@@HY2_OBFS_PASSWORD@@"
+      },
+      "udp_fragment": true,
+      "ignore_client_bandwidth": true,
+      "masquerade": "https://@@SNI@@",
+      "tls": {
+        "enabled": true,
+        "server_name": "@@HY2_SNI@@",
+        "alpn": ["h3"],
+        "certificate_path": "@@HY2_CERT_PATH@@",
+        "key_path": "@@HY2_KEY_PATH@@"
+      }
+    }
+  ]
+}

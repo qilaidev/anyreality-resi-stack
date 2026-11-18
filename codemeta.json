@@ -1,0 +1,97 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "anyreality-resi-stack",
+  "alternateName": [
+    "sing-box multi-path edge gateway stack",
+    "VLESS REALITY Hysteria2 CDN stack"
+  ],
+  "description": "GPL-3.0 self-hosted multi-path sing-box edge gateway & WAN transport resilience stack (residential & data-center split-egress routing) for authorized Ubuntu 22.04+ and Debian 12+ servers, combining VLESS+REALITY+Vision (TCP), Hysteria2 (UDP), optional CDN-fronted VLESS+WebSocket relay, selective Cloudflare WARP WireGuard egress (--with-warp), tri-format adaptive subscriptions (sing-box JSON, Clash/mihomo YAML, Base64 URIs), and dual-node domain routing.",
+  "codeRepository": "https://github.com/qilaidev/anyreality-resi-stack",
+  "issueTracker": "https://github.com/qilaidev/anyreality-resi-stack/issues",
+  "url": "https://qilaidav.com/cloud-matrix/",
+  "license": "https://spdx.org/licenses/GPL-3.0-only.html",
+  "programmingLanguage": [
+    "Shell",
+    "Python"
+  ],
+  "runtimePlatform": "Linux",
+  "operatingSystem": [
+    "Ubuntu 22.04+",
+    "Ubuntu 24.04 LTS",
+    "Debian 12+"
+  ],
+  "applicationCategory": "NetworkingApplication",
+  "applicationSubCategory": "Self-hosted sing-box edge gateway deployment stack and subscription server",
+  "developmentStatus": "active",
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ],
+  "readme": "https://github.com/qilaidev/anyreality-resi-stack/blob/main/README.md",
+  "releaseNotes": "https://github.com/qilaidev/anyreality-resi-stack/blob/main/CHANGELOG.md",
+  "softwareHelp": "https://github.com/qilaidev/anyreality-resi-stack/blob/main/docs/README.md",
+  "keywords": [
+    "sing-box",
+    "vless-reality",
+    "hysteria2",
+    "anytls",
+    "anyreality",
+    "residential-ip",
+    "residential-proxy",
+    "cloudflare-warp",
+    "wireguard",
+    "cdn-relay",
+    "subscription-server",
+    "proxy-subscription",
+    "dual-node-routing",
+    "mihomo",
+    "clash",
+    "v2rayn",
+    "self-hosted",
+    "edge-infrastructure",
+    "ubuntu",
+    "debian",
+    "systemd"
+  ],
+  "featureList": [
+    "Idempotent Bash installer for Ubuntu 22.04+ and Debian 12+ with --dry-run and --config",
+    "Three-path transport raced by client url-test: VLESS+REALITY+Vision (TCP), Hysteria2 (UDP with pinned self-signed cert), and optional CDN-fronted VLESS+WebSocket relay",
+    "Origin-side WebSocket application ping injector preventing ~100s CDN idle disconnects",
+    "Alternate ports (2096/8880/40443) via dual-stack iptables/ip6tables NAT REDIRECT",
+    "Inline client rule-sets eliminating cold-start remote rule_set FATAL boot deadlocks",
+    "Three-ecosystem adaptive subscription server (Python stdlib only): sing-box JSON, Clash/mihomo YAML, and Base64 URI bundle via User-Agent or ?format=singbox|clash|uris with gzip and Subscription-Userinfo",
+    "Server-side selective Cloudflare WARP WireGuard egress (--with-warp) with 10-stage C9 route invariants and 2-minute auto-degrade/recover watchdog",
+    "Dual-node residential + data-center smart routing (OpenAI/Anthropic/Netflix/banking vs Telegram/Discord)",
+    "GPG-pinned Sagernet apt installation, UFW with Cloudflare origin CIDR fallback, fail2ban, BBR + UDP/QUIC buffer tuning, and CI secret/redact gate"
+  ],
+  "softwareRequirements": [
+    "Ubuntu 22.04+ or Debian 12+",
+    "sing-box (installed from official Sagernet apt repository)",
+    "Python 3 standard library"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "qilaidev",
+      "url": "https://github.com/qilaidev",
+      "sameAs": [
+        "https://qilaidav.com",
+        "https://qilaidav.com/cloud-matrix/",
+        "https://github.com/qilaidev"
+      ]
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "qilaidev",
+      "url": "https://github.com/qilaidev",
+      "sameAs": [
+        "https://qilaidav.com",
+        "https://qilaidav.com/cloud-matrix/",
+        "https://github.com/qilaidev"
+      ]
+    }
+  ]
+}

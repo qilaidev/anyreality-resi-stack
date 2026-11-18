@@ -1,0 +1,25 @@
+{
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-ws-in",
+      "listen": "127.0.0.1",
+      "listen_port": 18443,
+      "users": [
+        {
+          "uuid": "@@UUID@@"
+        }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "@@CDN_WS_PATH@@",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "multiplex": {
+        "enabled": true,
+        "padding": false
+      }
+    }
+  ]
+}

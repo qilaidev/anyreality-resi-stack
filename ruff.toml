@@ -1,0 +1,18 @@
+# Single source of truth for Python linting across the whole repo.
+#
+# This used to live in subscription/pyproject.toml, which meant it only applied
+# to subscription/. Files under tests/ had no configuration in scope and were
+# therefore linted with whatever default rule set the installed ruff version
+# happened to ship — so CI and local runs disagreed, and a ruff release could
+# break main with no code change. Keep it here, at the root, covering both.
+
+line-length = 100
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM"]
+ignore = []
+
+[lint.per-file-ignores]
+# urllib.urlopen is intentional — this package has no third-party deps by design.
+"subscription/aggregator_server.py" = ["S310"]
